@@ -2,24 +2,24 @@
   <h2 class="text-center">All flats available in your area</h2>
   <div class="flat-cards d-flex justify-content-around">
     <% @flats.each do |flat| %>
-          <%= link_to flat_path(flat) do  %>
             <div class="card m-3 p-1 flex-wrap">
+              <div class="card-img" style="background-image: url('<%= flat.image_url %>')"></div>
               <div class="title">
-                <%= flat.name %>
+                <h3><%= flat.name %></h3>
               </div>
               <div class="flat-info">
                 <%= flat.address %>
                 <%= flat.description %>
               </div>
-              <div class="pricing">
-                <%= flat.number_of_guests %>
-                <%= flat.price_per_night %>
+              <div class="pricing mt-1">
+                <p>Guests: <%= flat.number_of_guests %></p>
+                <p>Price: <%= flat.price_per_night %></p>
               </div>
-              <div class="card-links">
-                <%= link_to "Delete Flat", flat_path(flat), method: :delete, data: { confirm: "Are you sure?" } %>
+              <div class="card-links d-flex">
+                <%= link_to "See Flat", flat_path(flat), class: "btn btn-outline-primary" %>
+                <%= link_to "Delete Flat", flat_path(flat), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger"%>
               </div>
             </div>
-          <% end %>
     <% end %>
   </div>
 </div>
