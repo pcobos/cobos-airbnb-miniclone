@@ -2,7 +2,6 @@ class FlatsController < ApplicationController
 
   def index
     if params[:search].present?
-      @search = params[:search]
       @flats = Flat.where("description LIKE '%#{params[:search]}%'")
     else
       @flats = Flat.all
@@ -45,7 +44,7 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:name, :address, :description, :price_per_night, :number_of_guests, :image_url, :search)
+    params.require(:flat).permit(:name, :address, :description, :price_per_night, :number_of_guests, :image_url)
   end
   
 end

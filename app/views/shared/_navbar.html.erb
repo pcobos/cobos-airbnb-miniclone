@@ -12,8 +12,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="search-bar mr-1">
         <%= form_tag(flats_path, method: :get) do %>
+          <%= label_tag(:search, "Search in flats") %>
           <%= text_field_tag(:search, params[:search]) %>
-          <%= submit_tag ("Search") %>
+          <%= submit_tag ("Search"), class: "btn btn-info" %>
         <% end %>
       </li>
       <li class="nav-item active">
@@ -21,13 +22,6 @@
       </li>
       <li>
         <%= link_to 'Add a flat', new_flat_path, class: "btn btn-outline-primary mr-1" %>
-      </li>
-      <li class="nav-item dropdown">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Action", "#", class: "dropdown-item" %>
-          <%= link_to "Another action", "#", class: "dropdown-item" %>
-        </div>
       </li>
     </ul>
   </div>
