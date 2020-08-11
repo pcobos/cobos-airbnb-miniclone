@@ -2,16 +2,7 @@
   <%# <div class="row"> %>
     <div class="col-6 m-auto">
       <h1>Edit flat</h1>
-      <div class="flat-form">
-        <%= simple_form_for @flat do |f| %>
-        <%= f.input :name %>
-        <%= f.input :address %>
-        <%= f.input :description %>
-        <%= f.input :price_per_night %>
-        <%= f.input :number_of_guests %>
-        <%= f.submit "Submit", disable_with: 'Submiting...' %>
-        <% end  %>
-      </div>
+      <%= render 'shared/flat_form' %>
     </div>
   <%# </div> %>
 </div>

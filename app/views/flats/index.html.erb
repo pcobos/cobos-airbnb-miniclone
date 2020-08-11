@@ -1,16 +1,25 @@
 <div class="container">
-  <h2>All flats available in your area</h2>
-  <div class="flat-cards">
-    <ul>
-      <% @flats.each do |flat| %>
-        <li>
-          <%= flat.name %>
-          <%= flat.address %>
-          <%= flat.description %>
-          <%= flat.price_per_night %>
-          <%= flat.number_of_guests %>
-        </li>
-      <% end %>
-    </ul>
+  <h2 class="text-center">All flats available in your area</h2>
+  <div class="flat-cards d-flex justify-content-around">
+    <% @flats.each do |flat| %>
+          <%= link_to flat_path(flat) do  %>
+            <div class="card m-3 p-1 flex-wrap">
+              <div class="title">
+                <%= flat.name %>
+              </div>
+              <div class="flat-info">
+                <%= flat.address %>
+                <%= flat.description %>
+              </div>
+              <div class="pricing">
+                <%= flat.number_of_guests %>
+                <%= flat.price_per_night %>
+              </div>
+              <div class="card-links">
+                <%= link_to "Delete Flat", flat_path(flat), method: :delete, data: { confirm: "Are you sure?" } %>
+              </div>
+            </div>
+          <% end %>
+    <% end %>
   </div>
 </div>
